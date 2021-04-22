@@ -1,0 +1,4 @@
+1 akula 1
+1 kit 1
+2 solovei 0
+2 golub 1
