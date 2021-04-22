@@ -37,7 +37,7 @@ namespace animals {
 	bool OutAnimal(animal* a, ofstream& ofst)
 	{
 		if (a->key == FISH)
-		{ 
+		{
 			fish_out((fish*)a, ofst);
 			return true;
 		}
