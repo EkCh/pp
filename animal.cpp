@@ -27,6 +27,7 @@ namespace animals {
 		default:
 			return 0;
 		}
+		ifst >> an->age;
 		return an;
 	}
 	// Сигнатуры требуемых внешних функций.
@@ -39,11 +40,13 @@ namespace animals {
 		if (a->key == FISH)
 		{ 
 			fish_out((fish*)a, ofst);
+			ofst << " Age: " << a->age << endl;
 			return true;
 		}
 		else if (a->key == BIRD)
 		{
 			bird_out((bird*)a, ofst);
+			ofst << " Age: " << a->age << endl;
 			return true;
 		}
 		else

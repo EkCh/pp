@@ -4,6 +4,7 @@ namespace animals {
 	// структура, обобщающая всех имеющихся животных
 	struct animal {
 		type key; // ключ
+		long age; //  возраст
 	};
 
 } // end animals namespac
