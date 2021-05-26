@@ -47,16 +47,30 @@ namespace animals {
 		return true;
 	}
 
-	void Out(struct container* s, ofstream& ofst)
-	{		
-		ofst << "Container contains " << s->size << " elements. " << endl;
-		
-		for (int i = 0; i < s->size; i++) 
+	void Out(container* s, ofstream& ofst)
 		{
-			ofst << i << ": ";
-			OutNode(s->head, i, ofst);
+		node* curNode;
+
+		ofst << "Container contains " << s->size << " elements. " << endl;
+
+		ofst << "Only fish." << endl;
+
+		for (int i = 0; i < s->size; i++)
+		{
+			curNode = s->head;
+			for (int j = 0; j < i; j++)
+			{
+				curNode = curNode->next;
+			}
+			if (curNode->a->key == FISH)
+			{
+				if (!OutNode(s->head, i, ofst))
+				{
+					ofst << "Node is broken!" << endl;
+				}
+			}
 		}
-	}
+		}
 
 	// Инициализация контейнера
 	void Init(container *c) {
