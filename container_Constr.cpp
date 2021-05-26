@@ -47,6 +47,47 @@ namespace animals {
 		return true;
 	}
 
+	int NameSize(animal* a);
+
+	bool Compare(animal* a1, animal* a2)
+	{
+		return NameSize(a1) < NameSize(a2);
+	}
+
+	node* GetNode(node* head, int index)
+	{
+		struct node* returnNode = head;
+
+		for (int i = 0; i < index; i++)
+		{
+			returnNode = returnNode->next;
+		}
+		return returnNode;
+	}
+
+	void Swap(node* head, int index_first, int index_second)
+	{
+		struct node* temp = new node;
+
+		temp->a = GetNode(head, index_first)->a;
+		GetNode(head, index_first)->a = GetNode(head, index_second)->a;
+		GetNode(head, index_second)->a = temp->a;
+	}
+
+	void Sort(int size, struct node* head)
+	{
+		for (int i = 0; i < size - 1; i++)
+		{
+			for (int j = i + 1; j < size; j++)
+			{
+				if (Compare(GetNode(head, i)->a, GetNode(head, j)->a))
+				{
+					Swap(head, i, j);
+				}
+			}
+		}
+	}
+
 	void Out(struct container* s, ofstream& ofst)
 	{		
 		ofst << "Container contains " << s->size << " elements. " << endl;
