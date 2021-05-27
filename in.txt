@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1 akula 1
 1 kit 1
 2 solovei 0
@@ -7,3 +8,9 @@
 2 golub 1
 3 tiger 0
 >>>>>>> new_class
+=======
+1 akula 1 4
+1 kit 1 10
+2 solovei 0 1
+2 golub 1 2
+>>>>>>> new_field
