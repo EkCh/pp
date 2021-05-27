@@ -11,6 +11,12 @@ namespace animals {
 		f->h = habitat(h);
 		return f;
 	}
+
+	int NameSize(fish* f)
+	{
+		return (f->name.size());
+	}
+
 	// Вывод параметров 
 	void fish_out(struct fish* f, ofstream& ofst)
 	{
@@ -26,5 +32,6 @@ namespace animals {
 			ofst << "lake" << endl;
 			break;
 		}
+		ofst << "Name size: " << NameSize(f) << endl;
 	}
 } // end animals namespace

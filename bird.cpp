@@ -11,6 +11,12 @@ namespace animals {
 		b->m = migr(m);
 		return b;
 	}
+
+	int NameSize(bird* b)
+	{
+		return (b->name.size());
+	}
+
 	// Вывод параметров 
 	void bird_out(struct bird* b, ofstream& ofst)
 	{
@@ -23,5 +29,6 @@ namespace animals {
 			ofst << "nonmigrant" << endl;
 			break;
 		}
+		ofst << "Name size: " << NameSize(b) << endl;
 	}
 } // end animals namespace

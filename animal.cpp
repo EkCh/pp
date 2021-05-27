@@ -1,4 +1,5 @@
 #include <fstream>
+#include <string>
 #include "animal_atd.h"
 #include "fish_atd.h"
 #include "bird_atd.h"
@@ -67,4 +68,10 @@ namespace animals {
 			return false;
 		}
 	}
+
+	int NameSize(animal *a)
+	{
+		return (a->name.size());
+	}
+
 } // end animals namespace
