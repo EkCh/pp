@@ -151,4 +151,78 @@ namespace animals
 		c->head = NULL;
 		c->size = 0;
 	}
+
+	void Multimethod(struct container* s, ofstream& ofst)
+	{
+		struct node* curr_node;
+		ofst << "Multimethod" << endl;
+
+		for (int i = 0; i < s->size - 1; i++)
+		{
+			for (int j = i + 1; j < s->size; j++)
+			{
+				curr_node = GetNode(s->head, i);
+				switch (curr_node->a->key) {
+				case FISH:
+					curr_node = GetNode(s->head, j);
+					switch (curr_node->a->key) {
+					case FISH:
+						ofst << "Fish and fish" << endl;
+						break;
+					case BIRD:
+						ofst << "Fish and bird" << endl;
+						break;
+					case BEAST:
+						ofst << "Fish and beast" << endl;
+						break;
+					default:
+						ofst << "Unknown key" << endl;
+						break;
+					}
+					break;
+				case BIRD:
+					curr_node = GetNode(s->head, j);
+					switch (curr_node->a->key) {
+					case FISH:
+						ofst << "Bird and fish" << endl;
+						break;
+					case BIRD:
+						ofst << "Bird and bird" << endl;
+						break;
+					case BEAST:
+						ofst << "Bird and beast" << endl;
+						break;
+					default:
+						ofst << "Unknown key" << endl;
+						break;
+					}
+					break;
+				case BEAST:
+					curr_node = GetNode(s->head, j);
+					switch (curr_node->a->key) {
+					case FISH:
+						ofst << "Beast and fish" << endl;
+						break;
+					case BIRD:
+						ofst << "Beast and bird" << endl;
+						break;
+					case BEAST:
+						ofst << "Beast and beast" << endl;
+						break;
+					default:
+						ofst << "Unknown key" << endl;
+						break;
+					}
+					break;
+				default:
+					ofst << "Unknown key" << endl;
+					break;
+				}
+
+				OutNode(s->head, i, ofst);
+				OutNode(s->head, j, ofst);
+			}
+		}
+	}
+
 } // end animals namespace

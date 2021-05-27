@@ -12,6 +12,7 @@ namespace animals
 	void Out(container* c, ofstream& ofst);
 	void OutFish(container* c, ofstream& ofst);
 	void Sort(int size, struct node* head);
+	void Multimethod(container* c, ofstream& ofst);
 }
 using namespace animals;
 
@@ -32,16 +33,6 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	char ch;
-	FILE* f = fopen(argv[1], "r");
-	if (fscanf(f, "%c", &ch) == EOF)
-	{
-		cout << "Input file is Empty" << endl;
-
-		return 1;
-	}
-	fclose(f);
-
 	ofstream ofst(argv[2]);
 
 	cout << "Start" << endl;
@@ -58,6 +49,9 @@ int main(int argc, char* argv[])
 	
 	ofst << "\nFiltered container." << endl;
 	OutFish(c, ofst);
+
+	cout << "Multimethod" << endl;
+	Multimethod(c, ofst);
 
 	Clear(c);
 	ofst << "Empty container. " << endl;
