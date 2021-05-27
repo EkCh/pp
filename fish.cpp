@@ -1,14 +1,32 @@
 #include <fstream>
+#include <iostream>
 #include "fish_atd.h"
 using namespace std;
-namespace animals {
+namespace animals 
+{
 	// ¬вод параметров 
 	fish* fish_in(ifstream& ifst)
 	{
 		fish* f = new fish;
 		int h;
-		ifst >> f->name >> h;
+		string tmp_name = "";
+
+		ifst >> tmp_name;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+		f->name = tmp_name;
+
+		ifst >> h;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
 		f->h = habitat(h);
+
 		return f;
 	}
 

@@ -3,7 +3,8 @@
 #include <fstream>
 
 using namespace std;
-namespace animals {
+namespace animals 
+{
 	// Сигнатуры требуемых внешних функций
 	void Init(container* c);
 	void Clear(container* c);
@@ -14,26 +15,55 @@ namespace animals {
 }
 using namespace animals;
 
-int main(int argc, char* argv[]) {
-	if (argc != 3) {
+int main(int argc, char* argv[]) 
+{
+	if (argc != 3) 
+	{
 		cout << "incorrect command line! "
 			"Waited: command infile outfile" << endl;
+
 		exit(1);
 	}
+
 	ifstream ifst(argv[1]);
+	if (!ifst)
+	{
+		cout << "No input file found!" << endl;
+		return 0;
+	}
+
+	char ch;
+	FILE* f = fopen(argv[1], "r");
+	if (fscanf(f, "%c", &ch) == EOF)
+	{
+		cout << "Input file is Empty" << endl;
+
+		return 1;
+	}
+	fclose(f);
+
 	ofstream ofst(argv[2]);
+
 	cout << "Start" << endl;
 	container* c = new container;
 	Init(c);
 	In(c, ifst);
+
 	ofst << "Filled container. " << endl;
-	Sort(c->size, c->head);
 	Out(c, ofst);
+
+	Sort(c->size, c->head);
+	ofst << "\nSorted container. " << endl;
+	Out(c, ofst);
+	
 	ofst << "\nFiltered container." << endl;
 	OutFish(c, ofst);
+
 	Clear(c);
 	ofst << "Empty container. " << endl;
+
 	Out(c, ofst);
 	cout << "Stop" << endl;
+
 	return 0;
 }

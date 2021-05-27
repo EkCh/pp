@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iostream>
 #include <string>
 #include "animal_atd.h"
 #include "fish_atd.h"
@@ -6,11 +7,13 @@
 #include "beast_atd.h"
 
 using namespace std;
-namespace animals {
+namespace animals 
+{
 	// Сигнатуры требуемых внешних функций
 	fish* fish_in(ifstream& ifst);
 	bird* bird_in(ifstream& ifst);
 	beast* beast_in(ifstream& ifst);
+
 	// Ввод параметров из файла
 	animal* In(ifstream& ifst)
 	{
@@ -34,7 +37,9 @@ namespace animals {
 		default:
 			return 0;
 		}
+
 		ifst >> an->age;
+
 		return an;
 	}
 	// Сигнатуры требуемых внешних функций.

@@ -1,16 +1,36 @@
 #include <fstream>
+#include <iostream>
 #include "beast_atd.h"
+
 using namespace std;
-namespace animals {
+namespace animals 
+{
 	// Ввод параметров 
 	beast* beast_in(ifstream& ifst)
 	{
 		beast* bst = new beast;
 		int p;
-		ifst >> bst->name >> p;
+		string tmp_name = "";
+
+		ifst >> tmp_name;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+		bst->name = tmp_name;
+
+		ifst >> p;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
 		bst->p = pref(p);
+
 		return bst;
 	}
+
 	// Вывод параметров 
 	void beast_out(struct beast* bst, ofstream& ofst)
 	{
