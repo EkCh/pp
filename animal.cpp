@@ -69,9 +69,21 @@ namespace animals {
 		}
 	}
 
+	int NameSize(fish* f);
+	int NameSize(bird* b);
+
 	int NameSize(animal *a)
 	{
-		return (a->name.size());
+		if (a->key == FISH)
+		{
+			return NameSize((fish*)a);
+		}
+		if (a->key == BIRD)
+		{
+			return NameSize((bird*)a);
+		}
+
+		return -1;
 	}
 
 } // end animals namespace
