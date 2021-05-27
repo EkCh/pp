@@ -9,6 +9,7 @@ namespace animals {
 	void Clear(container* c);
 	void In(container* c, ifstream& ifst);
 	void Out(container* c, ofstream& ofst);
+	void OutFish(container* c, ofstream& ofst);
 	void Sort(int size, struct node* head);
 }
 using namespace animals;
@@ -28,6 +29,8 @@ int main(int argc, char* argv[]) {
 	ofst << "Filled container. " << endl;
 	Sort(c->size, c->head);
 	Out(c, ofst);
+	ofst << "\nFiltered container." << endl;
+	OutFish(c, ofst);
 	Clear(c);
 	ofst << "Empty container. " << endl;
 	Out(c, ofst);
