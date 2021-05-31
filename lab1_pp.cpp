@@ -32,17 +32,12 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	char ch;
-	FILE* f = fopen(argv[1], "r");
-	if (fscanf(f, "%c", &ch) == EOF)
-	{
-		cout << "Input file is Empty" << endl;
-
-		return 1;
-	}
-	fclose(f);
-
 	ofstream ofst(argv[2]);
+	if (!ofst)
+	{
+		cout << "No output file found!" << endl;
+		return 0;
+	}
 
 	cout << "Start" << endl;
 	container* c = new container;

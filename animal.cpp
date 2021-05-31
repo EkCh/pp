@@ -19,7 +19,18 @@ namespace animals
 	{
 		animal* an;
 		int k;
+
 		ifst >> k;
+		if (ifst.eof())
+		{
+			return 0;
+		}
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+
 		switch (k) {
 		case 1:
 			an = (animal*)fish_in(ifst);
@@ -38,8 +49,6 @@ namespace animals
 			return 0;
 		}
 
-		ifst >> an->age;
-
 		return an;
 	}
 	// Сигнатуры требуемых внешних функций.
@@ -53,13 +62,11 @@ namespace animals
 		if (a->key == FISH)
 		{
 			fish_out((fish*)a, ofst);
-			ofst << " Age: " << a->age << endl;
 			return true;
 		}
 		else if (a->key == BIRD)
 		{
 			bird_out((bird*)a, ofst);
-			ofst << " Age: " << a->age << endl;
 			return true;
 		}
 		else if (a->key == BEAST)

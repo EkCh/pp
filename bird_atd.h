@@ -8,5 +8,6 @@ namespace animals {
 		type key;
 		std::string name;    // название
 		migr m; // перелетность
+		long age;
 	};
 } // end animals namespace

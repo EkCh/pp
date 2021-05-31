@@ -10,6 +10,7 @@ namespace animals
 		fish* f = new fish;
 		int h;
 		string tmp_name = "";
+		long tmp_age = 0;
 
 		ifst >> tmp_name;
 		if (ifst.fail())
@@ -26,6 +27,14 @@ namespace animals
 			exit(1);
 		}
 		f->h = habitat(h);
+
+		ifst >> tmp_age;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+		f->age = tmp_age;
 
 		return f;
 	}
@@ -50,6 +59,7 @@ namespace animals
 			ofst << "lake" << endl;
 			break;
 		}
+		ofst << "Age: " << f->age << endl;
 		ofst << "Name size: " << NameSize(f) << endl;
 	}
 } // end animals namespace

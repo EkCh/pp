@@ -8,5 +8,6 @@ namespace animals {
 		type key;
 		std::string name;    // название
 		habitat h; // место проживания
+		long age;
 	};
 } // end animals namespace

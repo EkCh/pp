@@ -10,6 +10,7 @@ namespace animals
 		bird* b = new bird;
 		int m;
 		string tmp_name = "";
+		long tmp_age = 0;
 
 		ifst >> tmp_name;
 		if (ifst.fail())
@@ -26,6 +27,14 @@ namespace animals
 			exit(1);
 		}
 		b->m = migr(m);
+
+		ifst >> tmp_age;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+		b->age = tmp_age;
 
 		return b;
 	}
@@ -47,6 +56,7 @@ namespace animals
 			ofst << "nonmigrant" << endl;
 			break;
 		}
+		ofst << "Age: " << b->age << endl;
 		ofst << "Name size: " << NameSize(b) << endl;
 	}
 } // end animals namespace
