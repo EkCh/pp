@@ -1,10 +1,12 @@
 #include <string>
 #include "animal_atd.h"
 #pragma once
-namespace animals {
+namespace animals 
+{
 	enum migr { MIGRANT, NONMIGRANT };
 	// птицы
-	struct bird {
+	struct bird 
+	{
 		type key;
 		std::string name;    // название
 		migr m; // перелетность

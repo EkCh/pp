@@ -1,10 +1,12 @@
 #include "animal_atd.h"
 #include <string>
 #pragma once
-namespace animals {
+namespace animals 
+{
 	enum habitat { RIVER, SEA, LAKE };
 	// рыбы
-	struct fish {
+	struct fish 
+	{
 		type key;
 		std::string name;    // название
 		habitat h; // место проживания

@@ -1,12 +1,15 @@
 #include <string>
 #include "animal_atd.h"
 #pragma once
-namespace animals {
+namespace animals 
+{
 	enum pref { PREDATOR, HERBIVORE, INSECTIVORE };
 	// звери
-	struct beast {
+	struct beast 
+	{
 		type key;
 		std::string name;    // название
 		pref p; 
+		long age;
 	};
 } // end animals namespace

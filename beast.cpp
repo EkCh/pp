@@ -11,6 +11,7 @@ namespace animals
 		beast* bst = new beast;
 		int p;
 		string tmp_name = "";
+		long tmp_age = 0;
 
 		ifst >> tmp_name;
 		if (ifst.fail())
@@ -26,7 +27,25 @@ namespace animals
 			cout << "Error! Unexpected end of input!" << endl;
 			exit(1);
 		}
+		if (p < 0 || p > 2)
+		{
+			cout << "Error! The range is <0-2>!" << endl;
+			exit(1);
+		}
 		bst->p = pref(p);
+
+		ifst >> tmp_age;
+		if (ifst.fail())
+		{
+			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+		if (tmp_age < 0)
+		{
+			cout << "Error! Age can not be negative!" << endl;
+			exit(1);
+		}
+		bst->age = tmp_age;
 
 		return bst;
 	}
@@ -46,5 +65,6 @@ namespace animals
 			ofst << "insectivore" << endl;
 			break;
 		}
+		ofst << "Age: " << bst->age << endl;
 	}
 } // end animals namespace

@@ -19,15 +19,17 @@ namespace animals
 	{
 		animal* an;
 		int k;
-
 		ifst >> k;
-		if (ifst.eof())
-		{
-			return 0;
-		}
+
 		if (ifst.fail())
 		{
-			cout << "Error! Unexpected end of input!" << endl;
+			cout << "Error! Wrong key input!" << endl;
+			exit(1);
+		}
+
+		if ((k < 0) || (k > 2))
+		{
+			cout << "Error! The key range is <0-2>!" << endl;
 			exit(1);
 		}
 

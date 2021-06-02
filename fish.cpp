@@ -26,12 +26,22 @@ namespace animals
 			cout << "Error! Unexpected end of input!" << endl;
 			exit(1);
 		}
+		if (h < 0 || h > 2)
+		{
+			cout << "Error! The range is <0-2>!" << endl;
+			exit(1);
+		}
 		f->h = habitat(h);
 
 		ifst >> tmp_age;
 		if (ifst.fail())
 		{
 			cout << "Error! Unexpected end of input!" << endl;
+			exit(1);
+		}
+		if (tmp_age < 0)
+		{
+			cout << "Error! Age can not be negative!" << endl;
 			exit(1);
 		}
 		f->age = tmp_age;
